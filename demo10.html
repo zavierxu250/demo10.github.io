@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo10</title>
+</head>
+<body>
+    <h1></h1>
+    <button>Change Name</button>
+
+    <script type="text/javascript">
+        var myButton=document.querySelector('button');
+        var myHeading=document.querySelector('h1');
+        function setUsername() {
+            var myName=prompt('Please enter your name:');
+            localStorage.setItem('name',myName);
+            myHeading.textContent='Hello, '+myName;
+        }
+        if (!localStorage.getItem('name')) {
+            setUsername();
+        }else{
+            var storagedName=localStorage.getItem('name');
+            myHeading.textContent='Hello, '+storagedName;
+        }
+        myButton.onclick=function () {
+            setUsername();
+
+        }
+
+    </script>
+</body>
+</html>
